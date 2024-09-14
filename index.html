@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Styled Hello World</title>
+    
+    <!-- Google Font: Great Vibes -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">   
+    
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(20, 20, 50, 0.8), black);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Particle Effect */
+        #particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: twinkling 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkling {
+            0%, 100% {
+                transform: scale(0.8);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 100px;
+            font-family: 'Great Vibes', cursive;
+            background-image: radial-gradient(circle at center, #C3FF33, #FFD533, #33FFD5);
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.4);
+            animation: glow 2s ease-in-out infinite alternate, gradientRotate 10s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.4);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        @keyframes gradientRotate {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Button Style */
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #FFD533;
+            border: dashed grey;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            transform: scale(up);
+        }
+
+        button:hover {
+            background-color: #C3FF33;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Text Content -->
+    <h1> &nbsp; Hello! Hope U'r Doing Just Fine&nbsp;:) &nbsp;</h1>
+
+    <!-- Press Me Button -->
+    <a href="motivational.html">
+        <button>Press Me!</button>
+    </a>
+
+    <!-- Particle Background -->
+    <div id="particles"></div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+
+        // Create 100 particles
+        for (let i = 0; i < 100; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.animationDuration = `${Math.random() * 2 + 3}s`;
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivational Message</title>
+    
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">   
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle, rgba(20, 20, 50, 0.8), rgb(175, 133, 133));
+            color: white;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+            position: relative; /* Added to position particles */
+        }
+
+        #particles-js {
+            position:fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        h1 {
+            font-size: 50px;
+            background-image: radial-gradient(circle at center, #FF9A8B,#C4A7E7,#FF6A88 );
+            background-clip: text;
+            color: transparent;
+            font-family:'Great Vibes', cursive;
+            font-size: 48px;
+            margin-bottom: 20px;
+            position: relative; /* Ensure h1 is above particles */
+            z-index: 1;
+        }
+        
+        pre {
+            font-family: 'Poppins', sans-serif;
+            white-space: pre-wrap; 
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center; 
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: typing 5s steps(40, end) forwards, fadeIn 1s forwards;
+            position: relative; /* Ensure pre is above particles */
+            z-index: 1;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <h4> Aja! Fighting li'l Warrior!</h4>
+    <h1>Don't &nbsp; Give  &nbsp;Up!</h1>
+    <pre id="motivationalText"></pre>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        const text = `Life is filled with challenges that sometimes feel overwhelming, but remember this: 
+the greatest victories often come after the toughest battles. Every setback is an opportunity to rise stronger, 
+and every obstacle is a stepping stone to something greater. You may feel tired, discouraged, or unsure, 
+but don’t give up now. You've come too far, and the breakthrough you’re waiting for could be just around the corner.
+
+Stay focused on your goal, keep pushing forward, and trust the process. Strength doesn’t come from never falling; 
+it comes from getting back up every time you do. You’ve got what it takes—keep hanging on, 
+because your perseverance will pay off in ways you can’t even imagine yet.`;
+
+        const motivationalTextElement = document.getElementById('motivationalText');
+
+        // Typing effect
+        let index = 0;
+        function type() {
+            if (index < text.length) {
+                motivationalTextElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 45); // Adjust typing speed here
+            }
+        }
+
+        // Start typing effect
+        type();
+
+        // Initialize particles
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 1
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
